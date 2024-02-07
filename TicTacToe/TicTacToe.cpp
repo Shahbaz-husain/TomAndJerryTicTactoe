@@ -7,8 +7,8 @@
 #include <mmsystem.h>
 
 #define MAX_LOADSTRING 100
-#define COLOR1 RGB(102, 153, 255)
-#define COLOR2 RGB(255, 0, 102)
+#define COLOR1 RGB(77, 77, 255)
+#define COLOR2 RGB(229, 43, 80)
 
 // Global Variables:
 HINSTANCE hInst;                                // current instance
@@ -135,6 +135,8 @@ int board[9] = { 0,0,0,0,0,0,0,0,0 };
 HBRUSH hbr1, hbr2;
 HICON icon1, icon2;
 int win[3];
+int highscore1 = 0;
+int highscore2 = 0;
 
 bool drawBoard(HWND hwnd, RECT* rect) {
     SetRectEmpty(rect);
@@ -260,10 +262,10 @@ void displayFooter(HWND hwnd, HDC hdc) {
 
     RECT footer;
     if (ptr != nullptr and GetClientRect(hwnd, &footer)) {
-        footer.top = footer.bottom - 50;
+        footer.top = footer.bottom - 60;
         FillRect(hdc, &footer, (HBRUSH)GetStockObject(LTGRAY_BRUSH));
         SetBkMode(hdc, TRANSPARENT);
-        SetTextColor(hdc, RGB(0, 0, 0));
+        SetTextColor(hdc, RGB(102, 102, 0));
         DrawText(hdc, ptr, lstrlen(ptr), &footer, DT_CENTER);
     }
 }
@@ -324,11 +326,13 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         {
             if (winner == 0) {
                 int ret = MessageBox(hWnd, L"Do you really wanna restart the game ?", L"Restart Game", MB_YESNO | MB_ICONWARNING);
-                if (ret == IDYES)
+                if (ret == IDYES) {
+                    highscore1 = 0;
+                    highscore2 = 0;
                     newgame(hWnd);
+                }
                 break;
             }
-            newgame(hWnd);
         }
         break;
         case IDM_ABOUT:
@@ -374,14 +378,20 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
                     if (winner == 1 or winner == 2)
                     {
+                        if (winner == 1)
+                            highscore1++;
+                        if (winner == 2)
+                            highscore2++;
                         showWinner(hWnd, hd);
                         MessageBox(hWnd, winner == 1 ? L"Player 1 has won." : L"Player 2 has won.", L"You Won!", MB_OK | MB_ICONINFORMATION);
                         player = 0;
+                        newgame(hWnd);
                     }
                     else if (winner == 3)
                     {
                         MessageBox(hWnd, L"No one has won.", L"It's a draw!", MB_OK | MB_ICONHAND);
                         player = 0;
+                        newgame(hWnd);
                     }
                     else
                     {
@@ -421,21 +431,28 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                 }
             }
 
-            if (winner == 1 or winner == 2)
+            if (winner == 1 or winner == 2) {
+                newgame(hWnd);
                 showWinner(hWnd, hdc);
+            }
 
             RECT playerTag;
             if (GetClientRect(hWnd, &playerTag)) {
-
+                WCHAR score1[50];
+                WCHAR score2[50];
+                wsprintf(score1, L"Score : %d", highscore1);
+                wsprintf(score2, L"Score : %d", highscore2);
 
                 SetBkMode(hdc, TRANSPARENT);
                 SetTextColor(hdc, COLOR1);
                 TextOut(hdc, playerTag.left + 16, 16, L"Player 1", 8);
                 DrawIcon(hdc, playerTag.left + 25, 40, icon1);
+                TextOut(hdc, playerTag.left + 16, 75, score1, lstrlen(score1));
 
                 SetTextColor(hdc, COLOR2);
                 TextOut(hdc, playerTag.right - 74, 16, L"Player 2", 8);
                 DrawIcon(hdc, playerTag.right - 60, 40, icon2);
+                TextOut(hdc, playerTag.right - 74, 75, score2, lstrlen(score2));
 
                 displayFooter(hWnd, hdc);
             }
