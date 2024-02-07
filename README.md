@@ -18,7 +18,7 @@ To play the game, follow these steps:
 1. **Clone the Repository:** Clone this repository to your local machine:  
 
 ```
-git clone https://github.com/Shahbaz-husain/TicTacToe.git
+git clone https://github.com/Shahbaz-husain/TomAndJerryTicTactoe.git
 ```
 2. **Build the Application:**   Build the desktop application using your preferred C++ compiler and GUI library/framework (e.g., Qt, wxWidgets, SFML).
 
