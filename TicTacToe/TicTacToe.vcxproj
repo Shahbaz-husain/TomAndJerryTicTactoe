@@ -148,9 +148,12 @@
     <Image Include="..\..\icons8-jerry-color-70.ico" />
     <Image Include="..\..\icons8-tom-color-70.ico" />
     <Image Include="..\..\Windows\icons8-jerry-color-144.png" />
+    <Image Include="game.ico" />
+    <Image Include="game_mini.ico" />
     <Image Include="icons8-jerry-color-70.ico" />
     <Image Include="icons8-tom-color-70.ico" />
     <Image Include="small.ico" />
+    <Image Include="tac_tic_toe_icon_183167.ico" />
     <Image Include="TicTacToe.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

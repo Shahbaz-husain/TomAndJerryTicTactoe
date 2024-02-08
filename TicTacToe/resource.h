@@ -8,8 +8,6 @@
 #define IDD_ABOUTBOX                    103
 #define IDM_ABOUT                       104
 #define IDM_EXIT                        105
-#define IDI_TICTACTOE                   107
-#define IDI_SMALL                       108
 #define IDC_TICTACTOE                   109
 #define IDR_MAINFRAME                   128
 #define IDB_PNG1                        129
@@ -18,8 +16,10 @@
 #define IDB_PNG4                        133
 #define IDI_ICON2                       136
 #define IDI_PLAYER1                     140
-#define IDI_ICON3                       141
 #define IDI_PLAYER2                     141
+#define IDI_SMALL                       144
+#define IDI_ICON1                       146
+#define IDI_TICTACTOE                   146
 #define ID_FILE_NEWGAME                 32771
 #define ID_FILE_NEWGAME32772            32772
 #define ID_Menu                         32773
@@ -30,7 +30,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NO_MFC                     1
-#define _APS_NEXT_RESOURCE_VALUE        142
+#define _APS_NEXT_RESOURCE_VALUE        147
 #define _APS_NEXT_COMMAND_VALUE         32774
 #define _APS_NEXT_CONTROL_VALUE         1000
 #define _APS_NEXT_SYMED_VALUE           110

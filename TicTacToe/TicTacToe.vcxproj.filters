@@ -78,5 +78,14 @@
     <Image Include="icons8-tom-color-70.ico">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="tac_tic_toe_icon_183167.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="game_mini.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="game.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
