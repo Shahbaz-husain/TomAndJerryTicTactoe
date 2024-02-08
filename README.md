@@ -22,7 +22,7 @@ git clone https://github.com/Shahbaz-husain/TicTacToe.git
 ```
 2. **Build the Application:**   Build the desktop application using your preferred C++ compiler and GUI library/framework (e.g., Qt, wxWidgets, SFML).
 
-3. **Run the Application:** Execute the compiled binary file to launch the Tom and Jerry Tic Tac Toe game.
+3. **Run the Application:** Execute the compiled binary file to launch the Tom and Jerry Tic Tac Toe game or can directly execute the executable file present in **/x64/Debug**.
 
 4. **Enjoy the Game:** Play the game with your friends and have fun!
 
